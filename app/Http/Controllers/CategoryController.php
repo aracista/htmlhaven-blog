@@ -78,7 +78,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+
+        $category->save();
+
+        return back()->withMessage('Category berhasil diedit.....');
     }
 
     /**
@@ -89,6 +97,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return back()->withMessage('Kategori Berhasil Dihapus!!');
     }
 }
