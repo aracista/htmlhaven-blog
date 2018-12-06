@@ -50,8 +50,9 @@ class PostController extends Controller
         $post->post = $request->post;
         $post->category_id = $request->category_id;
 
-        $post->save();
 
+        $post->save();
+        $post->tags()->sync($request->tags);
         return back()->withMessage('Post berhasil dibuat.....');
     }
 
