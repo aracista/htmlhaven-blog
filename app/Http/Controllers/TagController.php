@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tag;
-use App\Post;
-use App\Category;
 
-class PostController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,10 +23,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $category = Category::all();
-        $tags = Tag::all();
-        return view('post.create',compact('category','tags'));
+    {
+        $tag = Tag::all();
+        return view('tag.create',compact('tag'));
     }
 
     /**
@@ -40,19 +37,14 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'required',
-            'post'=>'required',
-            'category_id'=> 'required'
+            'name'=>'required'
         ]);
-        $post = new Post;
-        $post->title = $request->title;
-        $post->slug   = str_slug($post->title);
-        $post->post = $request->post;
-        $post->category_id = $request->category_id;
 
-        $post->save();
+        $tags = new Tag;
+        $tags->name = $request->name;
+        $tags->save();
 
-        return back()->withMessage('Post berhasil dibuat.....');
+        return back()->withMessage('Tag Berhasil Dibuat...');
     }
 
     /**
@@ -61,10 +53,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $posts = Post::where('slug','=',$slug)->first();
-        return view('post.show',compact('posts'));
+        //
     }
 
     /**
@@ -75,8 +66,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        return view('post.edit',compact('post'));
+        //
     }
 
     /**
@@ -88,17 +78,15 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $request->validate([
-            'title'=>'required',
-            'post'=>'required'
+        $request->validate([
+            'name'=>'required',
         ]);
-        $post = Post::find($id);
-        $post->title = $request->title;
-        $post->post = $request->post;
+        $tag = Tag::find($id);
+        $tag->name = $request->name;
 
-        $post->save();
+        $tag->save();
 
-        return back()->withMessage('Post berhasil diedit.....');
+        return back()->withMessage('Tag berhasil diedit.....');
     }
 
     /**
@@ -109,6 +97,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->delete();
+        return back()->withMessage('Tag Berhasil Dihapus!!');
     }
 }

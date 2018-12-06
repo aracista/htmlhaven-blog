@@ -26,7 +26,7 @@
 									<span class="label label-success"># tags</span>
 								</div>
 								<div class="kategori">
-									<span class="label label-default">Kategori</span>
+									<span class="label label-default">{{$posts->category->name}}</span>
 								</div>
 								<hr>
 								</div>
