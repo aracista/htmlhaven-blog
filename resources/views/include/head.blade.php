@@ -44,4 +44,5 @@
     <script>
         CKEDITOR.replace( 'post' );
     </script>
+    @yield('js')
     

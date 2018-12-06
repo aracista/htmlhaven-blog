@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="col-md-8 col-md-offset-2">
 		<div class="well">
-			<form action="{{route('post.store')}}" method="POST" role="form">
+			<form action="{{route('post.store')}}" method="POST" role="form" enctype="multipart/form-data">
 				@csrf
 				<legend>Buat Post</legend>
 				<div class="form-group">
@@ -27,6 +27,10 @@
 						<option value="{{$tag->id}}">{{$tag->name}}</option>
 						@endforeach
 					</select>
+				</div>
+				<div class="form-group">
+					<label for="">Pilih Gambar</label>
+					<input type="file" class="form-control" name="image">
 				</div>
 				<div class="form-group">
 					<label for="">Post</label>

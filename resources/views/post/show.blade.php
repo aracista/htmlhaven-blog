@@ -23,7 +23,9 @@
 										<i class="fa fa-instagram"></i>
 								</div>
 								<div class="tags">
-									<span class="label label-success"># tags</span>
+									@foreach($posts->tags as $tag)
+									<span class="label label-success">#{{$tag->name}}</span>
+									@endforeach
 								</div>
 								<div class="kategori">
 									<span class="label label-default">{{$posts->category->name}}</span>
@@ -33,7 +35,7 @@
 							</div>
 						</div>
 							<div class="col-md-12">
-								<div class="avatar_show"><a href="#"><img src="../images/post1.jpeg"></a></div>
+								<div class="avatar_show"><a href="#"><img src="{{asset('images/'.$posts->image)}}"></a></div>
 							<br>
 								<div class="post-content">
 									<p>{!!$posts->post!!}</p>

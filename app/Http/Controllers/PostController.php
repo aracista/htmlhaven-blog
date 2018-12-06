@@ -21,7 +21,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('post.index',compact('posts'));
     }
 
     /**
@@ -47,14 +48,21 @@ class PostController extends Controller
         $request->validate([
             'title'=>'required',
             'post'=>'required',
-            'category_id'=> 'required'
+            'category_id'=> 'required',
+            'image'=> 'required|image|mimes:jpeg,png,jpg'
         ]);
         $post = new Post;
         $post->title = $request->title;
         $post->slug   = str_slug($post->title);
         $post->post = $request->post;
         $post->category_id = $request->category_id;
-
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('/images');
+            $file->move($destinationPath,$fileName);
+            $post->image = $fileName;
+        }
 
         $post->save();
         $post->tags()->sync($request->tags);
@@ -82,7 +90,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('post.edit',compact('post'));
+        $category = Category::all();
+        $tags = Tag::all();
+        return view('post.edit',compact('post','category','tags'));
     }
 
     /**
@@ -101,9 +111,20 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->title = $request->title;
         $post->post = $request->post;
+        $post->category_id = $request->category_id;
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('/images');
+            $file->move($destinationPath,$fileName);
+
+            $oldFileName = $post->image;
+            \Storage::delete($oldFileName);
+            $post->image = $fileName;
+        }
 
         $post->save();
-
+        $post->tags()->sync($request->tags);
         return back()->withMessage('Post berhasil diedit.....');
     }
 
@@ -115,6 +136,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return back()->withMessage('Post Berhasil Dihapus!!');
     }
+
+
 }
