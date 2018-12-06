@@ -1,98 +1,116 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('include.head')
+@section('title', 'Welcome')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+ <div class="header_wrap">
+  <div class="info">
+     <div class="container">
+         <div class="row">
+            <div class="col-md-7">
+                 <div class="header_info">
+                    <div class="descrip">
+                        <a href="#">
+                        <h1 style="color:#ece705; font-weight: bold;     margin-top: 0;">WELCOME</h1>
+                          </a> 
+                         <p>
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt.
+                           </p><br>
+                           <div>
+                           <p>
+                            <a href="#" class="btn btn-danger" >Singup</a>
+                             <a href="#" class="btn btn-danger" >Login</a>
+                            </p>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                            </div>
+                         </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+  </div>
+</div>
+ 
+        <section class="wp-separator">
+            <article class="section">
+                <div class="container">
+                    <div class="row text-center">
+                        <p class="h1">ACTIVITIES & EVENTS</p>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nam numquam voluptates cumque </p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+<div class="container-fluid">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                <div class="well well-sm wl">
+                    
+                    <div class="btn-group">
+                        <a href="#" id="list" class="btn btn-default btn-sm"><span class="fa fa-th-list">
+                        </span> List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                            class="fa fa-th"></span> Grid</a>
+                    </div>
+                </div>
+  
+      <div id="grid_post" class="row list-group">
+        @foreach($posts as $post)
+         <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail as">
+               <img class="group list-group-image" src="../images/post1.jpeg" alt="" />
+                <div class="caption">
+                    <div class="c_hr">
+                    <h4 class="group inner list-group-item-heading"><a href="{{route('post.show',$post->slug)}}">{{str_limit($post->title,20)}}</a></h4>
+                         <small>{{$post->created_at->diffForHumans()}}</small> | by <a href="#">Admin</a>
+
+                     </div>
+                    <p class="group inner list-group-item-text">{{str_limit($post->post,50)}}</p>
+                    <div class="row"></div>
+                </div>
+                
+            </div>
+        </div>
+        @endforeach
+  </div><!-- end grid -->
+</div>
+
+    <div class="col-md-3">
+           <div class="list-group" style="box-shadow: 0 0px 1px 0px rgba(0, 0, 0, 0.26);">
+          <a href="#" class="list-group-item active">
+          Total 10 Tags <small class="pull-right">Lihat Semua  <i class="fa fa-share "></i> </small></a>
+          <a href="#" class="list-group-item">Laravel<span class="badge badge-primary">10 Posts</span></a>
+          <a href="#" class="list-group-item">PHP<span class="badge badge-primary">10 Posts</span></a>
+         
+        </div>
+
+         <div class="list-group" style="box-shadow: 0 0px 1px 0px rgba(0, 0, 0, 0.26);">
+         
+         <a href="#" class="list-group-item active">Total 2 Kategori <small class="pull-right">Lihat Semua  <i class="fa fa-share "></i> </small> </a>
+         <a href="#" class="list-group-item">Bahasa Pemograman Web<span class="badge badge-primary">6 Posts</span></a>
+         <a href="#" class="list-group-item">Desain Web<span class="badge badge-primary">6 Posts</span></a>
+
+        </div>
+        <div class="ads-img" style="border: 11px solid #eee;">
+          <img src="../images/img-sid.jpeg" style="width: 100%; height: auto;">
+         </div>
+         </div>
+    </div><!-- end row -->
+</div>
+        </section>
+        <!-- FOOTER --> 
+         <div class="text-center">
+                <ul class="pagination">
+                  <li><a href="#">1</a></li>
+                  <li class="active"><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                </ul>
+         </div>
+        <!-- END FOOTER --> 
+</div><!-- end con fluid -->
+@endsection
