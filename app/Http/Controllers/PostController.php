@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tag;
 use App\Post;
 use App\Category;
+use Storage;
 
 class PostController extends Controller
 {
@@ -142,6 +143,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        Storage::delete($post->image);
+        $post->tags()->detach();
         $post->delete();
         return back()->withMessage('Post Berhasil Dihapus!!');
     }

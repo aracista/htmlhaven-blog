@@ -1,13 +1,12 @@
- @extends('include.head')
+@extends('include.head')
 
 @section('content')
 
-<div class="container" style="margin-bottom: 120px;">
-	<div class="text-center"><h1>{{$tags2->name}} Tags<small>({{$tags2->posts()->count()}} Posts)</small></h1></div>
-	<hr>
-	<div class="row">
-		<div class="col-md-9">
-			@foreach($tags2->posts as $post)
+@if(count($posts)>0)
+<div class="container" style="margin-top: 3%; margin-bottom: 6%;">
+	<div class="text-center"><h1>Hasil Pencarian</h1></div>
+
+	@foreach($posts->all() as $post)
 			<div class="post-item">
 				<div class="post-inner">
 					<div class="post-head clearfix">
@@ -44,14 +43,19 @@
 					
 				</div>
 			</div>
-			@endforeach
-		</div>
-		
-			@include('include.sidebar')
-		
-	</div>
-	
+	@endforeach
 </div>
 
+@else
+
+	<div class="container" style="margin-top: 3%; margin-bottom: 22%;">
+		<div class="text-center"><h1>Hasil Pencarian</h1>
+		<hr>
+			<div class="post-inner">
+				No result
+			</div>
+	</div>
+	</div>
+@endif
 
 @stop

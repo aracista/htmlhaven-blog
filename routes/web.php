@@ -31,3 +31,5 @@ Route::resource('category', 'CategoryController');
 Route::resource('tag', 'TagController');
 
 Route::post('comment/create/{post}', 'CommentController@buatKomentar')->name('buatKomentar.store');
+
+Route::post('search', 'SearchController@search')->name('search');
