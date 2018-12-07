@@ -67,7 +67,7 @@ return [
             'host' => $host,
             'database' => $database,
             'username' => $username,
-            'password' => ,
+            'password' => '',
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
