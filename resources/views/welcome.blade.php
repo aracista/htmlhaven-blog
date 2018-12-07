@@ -64,21 +64,21 @@
         @foreach($posts as $post)
          <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail as">
-               <img class="group list-group-image img-responsive" src="{{asset('images/'.$post->image)}}" style="height: 200px; width: 250px;" />
+               <img class="group list-group-image img-responsive" src="{{asset('images/'.$post->image)}}" style="height: auto; width: 100%;" />
                 <div class="caption">
                     <div class="c_hr">
                     <h4 class="group inner list-group-item-heading"><a href="{{route('post.show',$post->slug)}}">{{str_limit($post->title,20)}}</a></h4>
                          <small>{{$post->created_at->diffForHumans()}}</small> | by <a href="#">Admin</a>
-
+<div class="row">{!!str_limit($post->post,150)!!}</div>
                      </div>
                     <p class="group inner list-group-item-text">
                       <span class="label label-default">{{$post->category->name}}</span><br><br>
                       @foreach($post->tags as $tag)
                   <span class="label label-success">#{{$tag->name}}</span>
                       @endforeach
-                      
+
                     </p>
-                    <div class="row">{!!str_limit($post->post,150)!!}</div>
+                    
                 </div>
                 
             </div>
