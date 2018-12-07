@@ -15,9 +15,9 @@
                         <h1 style="color:#ece705; font-weight: bold;     margin-top: 0;">SELAMAT DATANG</h1>
                           </a> 
                          <p>
-                          HTMLHaven merupakan sebuah kerajaan laut terdalam melebihi bikini bottom ,bergabunglah bersama kami menuju imajinasi tanpa batas dan melampauinya
+                          HTMLHaven merupakan sebuah kerajaan laut terdalam melebihi bikini bottom ,bergabunglah bersama kami menuju imajinasi tanpa batas dan melampauinya.
                            </p><br>
-                           <p><small>Bila terciduk FBI bukan merupakan tanggung jawab kami</small></p>
+                           <p><small><small>NB : Bila terciduk FBI bukan merupakan tanggung jawab kami.</small></small></p>
                            <div>
                             @guest
                            <p>
