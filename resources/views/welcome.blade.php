@@ -15,8 +15,9 @@
                         <h1 style="color:#ece705; font-weight: bold;     margin-top: 0;">SELAMAT DATANG</h1>
                           </a> 
                          <p>
-                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt.
+                          HTMLHaven merupakan sebuah kerajaan laut terdalam melebihi bikini bottom ,bergabunglah bersama kami menuju imajinasi tanpa batas dan melampauinya
                            </p><br>
+                           <p><small>Bila terciduk FBI bukan merupakan tanggung jawab kami</small></p>
                            <div>
                             @guest
                            <p>
@@ -39,8 +40,8 @@
             <article class="section">
                 <div class="container">
                     <div class="row text-center">
-                        <p class="h1">ACTIVITIES & EVENTS</p>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nam numquam voluptates cumque </p>
+                        <p class="h1">HTMLHaven</p>
+                        <h5 class="lead">The biggest Indonesian Useless Community</h5>
                     </div>
                 </div>
             </article>
@@ -74,9 +75,10 @@
                       @foreach($post->tags as $tag)
                       <span class="label label-success">#{{$tag->name}}</span>
                       @endforeach
+                      <span>{!!str_limit($post->post,50)!!}</span>
 
                     </p>
-                      <div class="row">{!!str_limit($post->post,150)!!}</div>
+                      
                      </div>
                     
                     
