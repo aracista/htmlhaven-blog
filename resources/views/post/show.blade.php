@@ -44,16 +44,65 @@
 					</div>
 				</div>
 			</div>
-		</div>
-								<div class="col-md-3">
-									<div class="editdelete">
-										<a href="{{route('post.edit',$posts->id)}}" class="btn btn-block btn-success">Edit</a>
-									</div>
-									<br>
-									<form action="" method="POST" role="form">
-										<input type="submit" name="" value="Hapus" class="btn btn-block btn-danger">
-									</form>
+			<!-- comment -->
+						<hr>
+						<h4>Comment :</h4>
+						<div class="panel with-nav-tabs panel-default">
+							<div class="panel-heading">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tab1" data-toggle="tab">All Comment</a></li>
+									<li><a href="#tab2" data-toggle="tab">Add comment</a></li>
+									<li><a href="#tab3" data-toggle="tab">Disqus</a></li>
+								</ul>
+							</div>
+							<div class="panel-body">
+								<div class="tab-content">
+										<div class="tab-pane fade in active" id="tab1">
+											@foreach($posts->comments as $comment)
+											<div class="post-item">
+												<div class="post-inner">
+													<div class="post-head clearfix">
+														<div class="col-md-2">
+															<img src="//a.disquscdn.com/1504815928/images/noavatar92.png" style="border-radius: 120px;">
+														</div>
+														<div class="col-md-10">
+															<h4>{{$comment->comment}}</h4>
+															<hr>
+															<p>By <a href=""> {{$comment->user->name}}</a></p>
+															<div class="pull-right">
+																<small>{{$comment->created_at->diffForHumans()}}</small>
+															</div>
+
+																					
+														</div>
+													</div>
+												</div>
+											</div>
+											@endforeach
+										</div>	
+										<div class="tab-pane fade" id="tab2">
+											<form action="{{route('buatKomentar.store',$posts->id)}}" method="POST" role="form">
+											@csrf
+												<div class="form-group">
+													<label for="">Tulis Komentar :</label>
+													<textarea type="text" class="form-control" name="comment" id="" placeholder="Input field"></textarea>
+												</div>
+												<button type="submit" class="btn btn-primary">Submit</button>
+											</form>
+										</div>
+										<div class="tab-pane fade" id="tab3">
+											disqus
+										</div>								
 								</div>
+										
+							</div>
+							
+						</div>
+			<!-- comment -->
+
+
+
+		</div>
 
 								@include('include.sidebar')
 	</div>
