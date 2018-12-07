@@ -4,7 +4,7 @@ body {
     background-color: #fff;
 }
 
-.navbar-default {
+.navbar-inverse {
     background-color: #ff1493 !important;
     font-size:18px;
     }
