@@ -1,9 +1,9 @@
 <?php
 $url = parse_url(getenv("DATABASE_URL"));
-$host = $url["host"]??null;
-$username = $url["username"]??null;
-$password = $url["password"]??null;
-$database = substr($url["path"],1)??null;
+$host = $url["host"]?? null;
+$username = $url["username"]?? null;
+$password = $url["password"]?? null;
+$database = substr($url["path"],1)?? null;
 
 return [
 
@@ -67,7 +67,7 @@ return [
             'host' => $host,
             'database' => $database,
             'username' => $username,
-            'password' => '',
+            'password' => $password,
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
