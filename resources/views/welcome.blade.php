@@ -75,6 +75,7 @@
                       <span class="label label-default">{{$post->category->name}}</span><br><br>
                       @foreach($post->tags as $tag)
                   <span class="label label-success">#{{$tag->name}}</span>
+                  {!!str_limit($post->post,150)!!}
                       @endforeach
                     </p>
                     <div class="row"></div>
