@@ -12,7 +12,7 @@
                  <div class="header_info">
                     <div class="descrip">
                         <a href="#">
-                        <h1 style="color:#ece705; font-weight: bold;     margin-top: 0;">WELCOME</h1>
+                        <h1 style="color:#ece705; font-weight: bold;     margin-top: 0;">SELAMAT DATANG</h1>
                           </a> 
                          <p>
                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt.
