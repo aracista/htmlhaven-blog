@@ -4,15 +4,6 @@ body {
     background-color: #fff;
 }
 
-.navbar-inverse {
-    background-color: #ff1493 !important;
-    font-size:18px;
-    }
-
-.navbar-inverse li a {
-  color: white;
-}
-
 .navbar{
   margin-bottom: 0 !important;
 }
