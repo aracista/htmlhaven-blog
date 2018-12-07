@@ -92,7 +92,7 @@
         </section>
         <!-- FOOTER --> 
          <div class="text-center">
-                
+                {!!$posts->links()!!}
          </div>
         <!-- END FOOTER --> 
 </div><!-- end con fluid -->
