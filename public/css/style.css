@@ -45,7 +45,7 @@ body {
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
     transform: translateZ(0);
     /*background-color: #444;*/
-  background:#1B2030 url('../../images/header.jpg') top center no-repeat;
+  background:#1B2030 url('#') top center no-repeat;
   background-size:cover;
   background-attachment:fixed;
   animation: grow 60s  linear 10ms infinite;
