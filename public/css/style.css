@@ -99,12 +99,12 @@ a:hover, a:focus {
 }
  
 .wl{
-      background: deeppink;
+      background: #ff1493;
     color: #fff;
 }
 
 .wp-separator {
-        background-color: #3097d1;
+        background-color: #ff1493;
     color: #fff;
 }
 
@@ -129,7 +129,7 @@ a:hover, a:focus {
 }
 
 .footer {
-    background-color: #337AB7;
+    background-color: #ff1493;
     color: #EEE;
     padding-top: 30px;
 }
