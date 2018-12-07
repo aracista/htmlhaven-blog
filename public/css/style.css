@@ -4,9 +4,13 @@ body {
     background-color: #fff;
 }
 
+.navbar-default {
+    background-color: #ff1493 !important;
+    font-size:18px;
+    }
+
 .navbar{
   margin-bottom: 0 !important;
-  color: #ff1493 !important;
 }
 
 .header_wrap{
