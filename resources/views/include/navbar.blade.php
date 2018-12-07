@@ -17,7 +17,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Post <span class="sr-only">(current)</span></a></li>
+        <li><a href="{{route('tag.index')}}">Post</a></li>
+        <li><a href="{{route('tag.index')}}">Tags</a></li>
+        <li><a href="{{route('category.index')}}">Kategori</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
         <li class="dropdown">
@@ -54,9 +56,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{route('post.index')}}" title="">Semua Post</a></li>
-            <li class="divider"></li>
             <li><a href="{{route('post.create')}}" title="">Buat Post Baru</a></li>
+            <li class="divider"></li>
             <li><a href="{{route('category.create')}}" title="">Buat Kategori Baru</a></li>
             <li><a href="{{route('tag.create')}}" title="">Buat Tag Baru</a></li>
           </ul>

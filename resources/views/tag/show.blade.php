@@ -1,12 +1,13 @@
-@extends('include.head')
+ @extends('include.head')
 
 @section('content')
 
 <div class="container" style="margin-bottom: 120px;">
+	<div class="text-center"><h1>{{$tags2->name}} Tags<small>({{$tags2->posts()->count()}} Posts)</small></h1></div>
 	<hr>
 	<div class="row">
 		<div class="col-md-9">
-			@foreach($posts as $post)
+			@foreach($tags2->posts as $post)
 			<div class="post-item">
 				<div class="post-iner">
 					<div class="post-head clearfix">

@@ -13,7 +13,9 @@
 
 Route::get('/', function () {
 	$posts = App\Post::all();
-    return view('welcome',compact('posts'));
+	$tags = App\Tag::orderBy('id','desc')->paginate(5);
+	$categories = App\Category::orderBy('id','desc')->paginate(5);
+    return view('welcome',compact('posts','tags','categories'));
 });
 
 Auth::routes();

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tag;
+use App\Post;
+use App\Category;
 
 class TagController extends Controller
 {
@@ -19,7 +21,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::orderBy('id','desc')->paginate(3);
+        return view('tag.index',compact('tags'));
     }
 
     /**
@@ -60,7 +63,11 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tags = Tag::orderBy('id','desc')->paginate(5);
+        $categories = Category::orderBy('id','desc')->paginate(5);
+        $tags2 = Tag::find($id);
+        $posts = Post::all();
+        return view('tag.show',compact('tags','tags2','posts','categories')); 
     }
 
     /**

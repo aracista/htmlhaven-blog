@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\Tag;
 use App\Category;
+
 
 class CategoryController extends Controller
 {
@@ -18,7 +21,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::orderBy('id','desc')->paginate(3);
+        return view('category.index',compact('categories'));
     }
 
     /**
@@ -59,7 +63,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $tags = Tag::orderBy('id','desc')->paginate(5);
+        $categories = Category::orderBy('id','desc')->paginate(5);
+        $categories2 = Category::find($id);
+        $posts = Post::all();
+        return view('category.show',compact('tags','categories2','posts','categories')); 
     }
 
     /**

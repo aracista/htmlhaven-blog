@@ -22,7 +22,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('post.index',compact('posts'));
+        $tags = Tag::orderBy('id','desc')->paginate(5);
+        $categories = Category::orderBy('id','desc')->paginate(5);
+        return view('post.index',compact('posts','tags','categories'));
     }
 
     /**
@@ -34,7 +36,8 @@ class PostController extends Controller
     {   
         $category = Category::all();
         $tags = Tag::all();
-        return view('post.create',compact('category','tags'));
+        $posts = Post::all();
+        return view('post.create',compact('category','tags','posts'));
     }
 
     /**
@@ -77,8 +80,10 @@ class PostController extends Controller
      */
     public function show($slug)
     {
+        $tags = Tag::orderBy('id','desc')->paginate(5);
+        $categories = Category::orderBy('id','desc')->paginate(5);
         $posts = Post::where('slug','=',$slug)->first();
-        return view('post.show',compact('posts'));
+        return view('post.show',compact('posts','tags','categories'));
     }
 
     /**

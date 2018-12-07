@@ -1,12 +1,13 @@
-@extends('include.head')
+ @extends('include.head')
 
 @section('content')
 
 <div class="container" style="margin-bottom: 120px;">
+	<div class="text-center"><h1>Kategori {{$categories2->name}}<small>({{$categories2->posts()->count()}} Posts)</small></h1></div>
 	<hr>
 	<div class="row">
 		<div class="col-md-9">
-			@foreach($posts as $post)
+			@foreach($categories2->posts as $post)
 			<div class="post-item">
 				<div class="post-iner">
 					<div class="post-head clearfix">
@@ -30,9 +31,9 @@
 								<i class="fa fa-instagram"></i>
 							</span>
 
-								@foreach($post->tags as $tag)
-								<span class="label label-success">{{$tag->name}}</span>
-								@endforeach
+								
+								<span class="label label-success">{{$categories2->name}}</span>
+								
 
 							<div class="content" style="margin-top: 12px;">
 								{!!str_limit($post->post,150)!!}
