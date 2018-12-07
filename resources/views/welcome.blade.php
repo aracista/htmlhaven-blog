@@ -18,10 +18,13 @@
                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt.
                            </p><br>
                            <div>
+                            @guest
                            <p>
-                            <a href="#" class="btn btn-danger" >Singup</a>
-                             <a href="#" class="btn btn-danger" >Login</a>
+                            <a href="{{ route('login') }}" class="btn btn-danger" >Login</a>
+          
+                            <a href="{{ route('register') }}" class="btn btn-danger" >Singup</a>
                             </p>
+                            @endguest
 
                             </div>
                          </div>
