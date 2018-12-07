@@ -6,6 +6,7 @@ body {
 
 .navbar{
   margin-bottom: 0 !important;
+  color: #ff1493 !important;
 }
 
 .header_wrap{
@@ -139,7 +140,7 @@ a:hover, a:focus {
 }
 
 .footer-p {
-    background-color: #2B679A;
+    background-color: #ff1493;
     color: #EEE;
     padding-top: 20px;
     text-align: center;
