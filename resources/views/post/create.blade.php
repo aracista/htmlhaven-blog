@@ -1,7 +1,7 @@
 @extends('include.head')
 
 @section('content')
-<div class="container" style="margin-top: 2%;">
+<div class="container" style="margin-top: 4%;">
 	<div class="col-md-8 col-md-offset-2">
 		<div class="well">
 			<form action="{{route('post.store')}}" method="POST" role="form" enctype="multipart/form-data">
