@@ -36,7 +36,7 @@
 					<label for="">Post</label>
 					<textarea type="text" class="form-control" id="" placeholder="Input field" name="post"></textarea>
 				</div>
-				<button type="submit" class="btn btn-success">Submit</button>
+				<button type="submit" class="btn btn-success"  data-toggle="modal" data-target="#myModal">Submit</button>
 			
 		</form>
 			
